@@ -1,0 +1,45 @@
+{% extends "base.html" %}
+{% load static %}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Your Page Title</title>
+    {% block extra_css %}
+    <link rel="stylesheet" type="text/css" href="{% static 'css/signup.css' %}">
+    {% endblock %}
+</head>
+<body>
+
+{% block content %}
+<div class="signup_tag">
+ <h1>Log In</h1> 
+</div>
+
+<div class="form_container">
+<div class="form_box">
+<form method="post">
+{% csrf_token %}
+{% for field in form %}
+  {{field.label_tag}}
+  <br>
+  {{field}}<br>
+{% endfor %}
+<div class="errors">
+  {% if form.errors %}
+    <p>Please enter a correct username and password.</p>
+  {% endif %}
+</div>
+<button type="submit" class="signup_button">Login</button>
+<br>
+<button class="login_button"><a href="{% url 'signup'%}">signup</a></button>
+<p class="footer">
+  All rights reserved ChatSync© 2023
+</p>
+</form>
+</div>
+</div>
+{% endblock content %}
+</body>
+</html>

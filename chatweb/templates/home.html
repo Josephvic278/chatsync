@@ -1,0 +1,87 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Your Page Title</title>
+    <link rel="stylesheet" type="text/css" href="{% static 'css/home.css' %}">
+    <script src="{% static 'js/home.js' %}"></script>
+</head>
+{% if user.is_authenticated %}
+<body>
+  <div class="header">
+    <div class="logos">
+    <div class="logo">
+      <img src="{% static 'img/logo.png' %}">
+    </div>
+    <div class="user_logo">
+      <img src="{% static 'img/account.png' %}">
+    </div>
+  </div>
+  <div class="tabs">
+    <div class="chats_tab" onclick="chats_bar()">
+      <div class="chats_text">
+        <p>Chats</p>
+      </div>
+    </div>
+    
+    <div class="updates_tab" onclick="updates_bar()">
+      <div class="updates_text">
+        <p>Status</p>
+      </div>
+    </div>
+    
+    <div class="friends_tab" onclick="friends_bar()">
+      <div class="friends_text">
+        <p>Friends</p>
+      </div>
+    </div>
+  </div>
+  <div class="bars">
+    <div class="chats_bar" id="chats_bar">
+      
+    </div>
+    <div class="updates_bar" id="">
+      
+    </div>
+    <div class="friends_bar" id="friends_bar">
+      
+    </div>
+  </div>
+  <div class="bl">
+    
+  </div>
+  </div>
+<div class="body_container">
+  <div class="chats_body" id="chats_body">
+    {% if not user.user_chats.chats %}
+      <div class="ghost_alert">
+        <img src="{% static 'img/ghost.png' %}">
+      </div>
+      <div class="ghost_alert_p">
+        <p>You have no chats currently click the <span class="plus_btn_p">+</span> button to start a new conversation.</p>
+      </div>
+    {% endif %}
+    <div class="content">
+ 
+    </div>
+    <p>
+      
+    </p>
+  </div>
+  <div class="updates_body" id="updates_body">
+    <div class="updates_title">
+      <p>Updates</p>
+    </div>
+  </div>
+  <div class="friends_body" id="friends_body">
+    friends_body
+  </div>
+</div>
+<div class="new_chat" id="new_chat">
+  <img src="{% static 'img/new_chat.png' %}">
+</div>
+</body>
+{% endif %}
+</html>

@@ -4,6 +4,9 @@
   font-family: Calibri;
   overflow-x: hidden;
 }
+body{
+ 
+}
 .header{
   height: inherit;
   width: 100%;
@@ -83,21 +86,24 @@
   position: relative;
 }
 .chats_body{
-  position: relative;
-  height: 100%;
+  position: absolute;
+  height: inherit;
   width: 100%;
   transition: 0.5s;
 }
 .updates_body, .friends_body{
-  position: absolute;
-  top: 0;
+  position: relative;
   transition: 0.5s;
   right: -100%;
-  height: 100%;
+  top: 0;
+  height: inherit;
   width: 100%;
 }
 .friends_body{
-  z-index: 5;
+  margin-top: -145px;
+}
+.friends_body{
+  
 }
 .new_chat{
   position: fixed;
@@ -138,5 +144,154 @@
 }
 .updates_title p{
   font-size: 18px;
+  margin: 0;
   font-weight: bold;
+}
+.add_update{
+  height: 90px;
+  align-items: center;
+  display: flex;
+  width: 100%;
+}
+.add_update_btn{
+  
+}
+.add_update_btn img{
+  width: 60px;
+  margin-left: 10px;
+}
+.add_update_text{
+  margin-left: 5px;
+}
+.add_update_text h3{
+  font-size: ;
+}
+.add_update_text p{
+  font-size: 13px;
+  color: grey;
+  font-weight: 500;
+}
+.status_btn{
+  position: fixed;
+  bottom: 20px;
+  right: -20%;
+  justify-content: center;
+  align-items: center;
+  display: flex;
+  background: #D1D5DB;
+  height: 47px;
+  width: 47px;
+  border-radius: 100%;
+  transition: 0.5s;
+}
+.status_btn img{
+  width: 36px;
+}
+.pencil_btn{
+  position: fixed;
+  bottom: 80px;
+  right: -20%;
+  justify-content: center;
+  align-items: center;
+  display: flex;
+  background: black;
+  height: 47px;
+  width: 47px;
+  border-radius: 100%;
+  transition: 0.5s;
+}
+.pencil_btn img, .friends_btn img{
+  width: 30px;
+}
+.friends_btn{
+  position: fixed;
+  bottom: 20px;
+  right: -20%;
+  background: white;
+  justify-content: center;
+  align-items: center;
+  display: flex;
+  background: black;
+  height: 47px;
+  width: 47px;
+  border-radius: 100%;
+  transition: 0.5s;
+}
+.menu_page{
+  transition: 0.5s;
+  height: 100%;
+  width: 100%;
+  background: black;
+  top: 0;
+  left: -100%;
+  position: fixed;
+  z-index: 9999;
+  background: linear-gradient(black,rgba(1,2,7,0.9));
+}
+.close_menu{
+  margin: 15px;
+}
+.close_menu h2{
+  font-weight: 400;
+  font-size: 30px;
+}
+.menu_items{
+  background: none;
+}
+.menu_items ul{
+  margin: 10px;
+}
+.menu_items ul li{
+  margin-top: 18px;
+  color: white;
+  font-size: 18px;
+  font-weight: 300;
+  list-style: none;
+}
+.menu_items ul li a{
+  text-decoration: none;
+  color: white;
+}
+.suggestions{
+  margin-top: 10px;
+}
+.suggest{
+  margin-top: 10px;
+  display: flex;
+}
+.no_photo{
+  background: none;
+}
+.no_photo img{
+  width: 55px;
+  border-radius: 100%;
+}
+.suggestion_names{
+  margin-left: 10px;
+  margin-top: 5px;
+  align-items: center;
+}
+.suggestion_names p{
+  font-weight: bold;
+  font-size: 15px;
+}
+.suggestion_buttons{
+  display: flex;
+  margin-top: 5px;
+}
+.suggestion_buttons button{
+  height: 28px;
+  border: none;
+  background: black;
+  color: white;
+  font-weight: bold;
+  border-radius: 2px;
+  width: 100px;
+}
+.suggestion_buttons .opt_btn{
+  background: white;
+  color: black;
+  border: 0.5px solid black;
+  margin-left: 10px;
+  width: 56px;
 }

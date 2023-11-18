@@ -15,7 +15,7 @@
     <div class="logo">
       <img src="{% static 'img/logo.png' %}">
     </div>
-    <div class="user_logo">
+    <div class="user_logo" onclick="open_menu()">
       <img src="{% static 'img/account.png' %}">
     </div>
   </div>
@@ -63,24 +63,91 @@
         <p>You have no chats currently click the <span class="plus_btn_p">+</span> button to start a new conversation.</p>
       </div>
     {% endif %}
-    <div class="content">
- 
-    </div>
-    <p>
-      
-    </p>
   </div>
   <div class="updates_body" id="updates_body">
     <div class="updates_title">
       <p>Updates</p>
     </div>
+    <div class="add_update">
+      <div class="add_update_btn">
+        <img src="{% static 'img/status.png' %}">
+      </div>
+      <div class="add_update_text">
+        <h3>My Status</h3>
+        <p>Create a status update and share moments</p>
+      </div>
+    </div>
   </div>
   <div class="friends_body" id="friends_body">
-    friends_body
+    <div class="updates_title">
+      <p>Friends</p>
+    </div>
+    {% if not user.user_friends.friends %}
+      <div class="ghost_alert">
+        <img src="{% static 'img/friends_ghost.png' %}">
+      </div>
+      <div class="ghost_alert_p">
+        <p>You currently have no friends on this platform click on the <span class="plus_btn_p">Button Below</span> add or search for a new friend.</p>
+        
+      </div>
+    {% endif %}
+    <div class="updates_title">
+      <p>Suggestions</p>
+      <div class="suggestions">
+      {% for users in userdb %}
+        {% if users.username != user.username %}
+        <div class="suggest">
+          {% if users.user_photo == None %}
+          <div class="no_photo">
+            <img src="{% static 'img/no_profilepic.png' %}">
+          </div>
+          <div class="suggestion_names">
+            <p>{{users.first_name}} {{users.last_name}}</p>
+          <div class="suggestion_buttons">
+            <button>Add Friend</button>
+            <button class="opt_btn">...</button>
+          </div>
+          </div>
+          {% endif %}
+        </div>
+        {% endif %}
+      {% endfor %}
+      </div>
+    </div>
   </div>
 </div>
 <div class="new_chat" id="new_chat">
   <img src="{% static 'img/new_chat.png' %}">
+</div>
+<div class="pencil_btn" id="pencil_btn">
+  <img src="{% static 'img/pencil.png' %}">
+</div>
+<div class="status_btn" id="status_btn">
+  <img src="{% static 'img/media.png' %}">
+</div>
+<div class="friends_btn" id="friends_btn">
+  <img src="{% static 'img/friends.png' %}">
+</div>
+<div class="menu_page" id="menu">
+  <div class="logos">
+    <div class="logo">
+      <img src="{% static 'img/logo.png' %}">
+    </div>
+    <div class="close_menu" onclick="close_menu()">
+      <h2 style="color:white">×</h2>
+    </div>
+  </div>
+  <div class="menu_items">
+    <ul>
+      <li>Profile</li>
+      <li>Chats</li>
+      <li>Contacts</li>
+      <li>Create Group</li>
+      <li>Settings</li>
+      <li>About</li>
+      <li><a href="{% url 'logout' %}">Logout</a></li>
+    </ul>
+  </div>
 </div>
 </body>
 {% endif %}

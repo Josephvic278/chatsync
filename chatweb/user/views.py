@@ -1,7 +1,7 @@
 from django.urls import reverse_lazy
 from django.views.generic import CreateView
-from .models import Users
 from .forms import SignUpForm
+from .models import Users
 # Create your views here.
 
 class SignUpView(CreateView):
@@ -13,6 +13,7 @@ class SignUpView(CreateView):
         user_instance = form.save(commit=False)
        
         user_instance.user_chats = {"chats":[]}
+        user_instance.user_friends = {"friends":[]}
         user_instance.save()
         
         return super().form_valid(form)
